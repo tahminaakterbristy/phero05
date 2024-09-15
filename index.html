@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <a class="btn btn-ghost text-3xl">P-Travel</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 text-xl">
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li><a>Destination</a></li>
+            <li><a>Search</a></li>
+          </ul>
+        </div>
+        <img class="flex-end" src="images/bus-logo.png" />
+      </div>
+    </nav>
+
+    <main>
+      <section>
+        <div
+          class="hero min-h-screen"
+          style="background-image: url(images/banner.png)"
+        >
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold">
+                End-to-End Travel with<br />
+                <span class="text-green-600">P-Paribahan</span>
+              </h1>
+              <p class="mb-5">
+                Yes, You can run unit tests and view the results directly within
+                the app. The integrated testing features allow for a
+                streamlined.
+              </p>
+              <button
+                class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-green-500"
+              >
+                Buy Tickets
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ticketing section -->
+    <section>
+      <h2 class="text-3xl pl-96 py-5">Best Offers For You</h2>
+      <div class="flex space-x-12 mx-64 mb-12">
+        <div class="card w-96 bg-orange-400 shadow-xl">
+          <div class="mx-44">
+            <img src="images/cupon-devider.png" class="h-32 w-6" />
+          </div>
+        </div>
+        <div class="card w-96 bg-secondary shadow-xl">
+          <div class="mx-44">
+            <img src="images/cupon-devider.png" class="h-32 w-6" />
+          </div>
+          <div class="card-body">
+            <p>We are using cookies for no reason.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket selling section -->
+    <section class="bg-base-100 pl-36">
+      <div class="flex">
+        <div class="flex">
+          <div>
+            <img src="images/bus-logo.png" class="mx-8" />
+          </div>
+          <div>
+            <h3 class="font-bold mx-2">Greenline Paribahan</h3>
+            <p>Coach-009-WEB | AC Business</p>
+          </div>
+        </div>
+        <div class="flex">
+          <button class="btn bg-green-100 text-green-600 ml-96">
+            <span id="remaining-seats" class="font-bold">28 Seats Remaining</span>
+            <img src="images/seat-green.png" class="" />
+          </button>
+        </div>
+      </div>
+      <div class="flex pl-36">
+        <div class="bg-green-100 h-40 mt-5 ml-8 rounded-box">
+          <p class="pt-5 ml-4 font-bold">
+            Route<span class="pl-80">Dhaka-Sylhet</span>
+          </p>
+          <hr />
+          <p class="pt-5 ml-4 font-bold">
+            Departure Time<span class="pl-80">9 PM</span>
+          </p>
+          <hr />
+          <div class="flex mt-5">
+            <button class="btn w-18 mx-2">Boarding point-Laxmipur</button>
+            <button class="btn w-18 mx-2">Dropping Point-Bogura</button>
+            <button class="btn w-18 mx-2">Est time-11hrs</button>
+          </div>
+        </div>
+        <div class="pl-36 pt-12">
+          <img src="images/fare.png" />
+          <p class="font-bold">500Tk</p>
+          <p>Per Ticket</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- tickets part -->
+    <section class="px-24 pr-24 bg-green-300 rounded-box mt-5">
+      <div>
+        <div>
+          <h2 class="text-xl font-bold">Select Your Seat</h2>
+          <hr />
+        </div>
+        <div class="my-5 flex">
+          <img src="images/seat-gray.png" />
+          <span id="remaining-seats" class="font-bold">Available: 12</span>
+          <img src="images/seat-green.png" class="pl-80" />
+          <span class="font-bold text-green-600"
+            >Selected</span
+          >
+        </div>
+        <hr />
+        <img src="images/wheel.png" class="pl-80 my-5" />
+     <div class="flex">
+   
+      <div class="grid grid-cols-5 gap-2 mb-4 ml-44">
+        
+        <!-- Generate seats dynamically using JavaScript  -->
+        <p>A</p>
+        <button class="btn btn-sm seat">A1</button>
+        <button class="btn btn-sm seat">A2</button>
+        <button class="btn btn-sm seat">A3</button>
+        <button class="btn btn-sm seat">A4</button>
+
+        <p>B</p>
+        <button class="btn btn-sm seat">B1</button>
+        <button class="btn btn-sm seat">B2</button>
+        <button class="btn btn-sm seat">B3</button>
+        <button class="btn btn-sm seat">B4</button>
+
+        <p>C</p>
+        <button class="btn btn-sm seat">C1</button>
+        <button class="btn btn-sm seat">C2</button>
+        <button class="btn btn-sm seat">C3</button>
+        <button class="btn btn-sm seat">C4</button>
+
+        <p>D</p>
+        <button class="btn btn-sm seat">D1</button>
+        <button class="btn btn-sm seat">D2</button>
+        <button class="btn btn-sm seat">D3</button>
+        <button class="btn btn-sm seat">D4</button>
+
+        <p>E</p>
+        <button class="btn btn-sm seat">E1</button>
+        <button class="btn btn-sm seat">E2</button>
+        <button class="btn btn-sm seat">E3</button>
+        <button class="btn btn-sm seat">E4</button>
+
+        <p>F</p>
+        <button class="btn btn-sm seat">F1</button>
+        <button class="btn btn-sm seat">F2</button>
+        <button class="btn btn-sm seat">F3</button>
+        <button class="btn btn-sm seat">F4</button>
+
+        <p>G</p>
+        <button class="btn btn-sm seat">G1</button>
+        <button class="btn btn-sm seat">G2</button>
+        <button class="btn btn-sm seat">G3</button>
+        <button class="btn btn-sm seat">G4</button>
+      </div>
+      <div class="pl-36 bg-white-100">
+        <div class="mt-10">
+          <h3 class="text-lg font-bold">Your Booking Details</h3>
+          <table class="table w-full mt-5">
+            <thead>
+              <tr>
+                <th>Selected Seats</th>
+                <th>Class</th>
+                <th>Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="selected-seats-table">None</td>
+                <td>Economy</td>
+                <td id="total-price-table">৳0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-5">
+          <h3 class="text-lg font-bold">Enter Your Details</h3>
+          <form id="user-form" class="grid grid-cols-1 gap-4 mt-3">
+            <div>
+              <label class="label">
+                <span class="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                class="input input-bordered w-full"
+                required
+              />
+            </div>
+            <div>
+              <label class="label">
+                <span class="label-text">Phone Number</span>
+              </label>
+              <input
+                type="text"
+                id="phone"
+                class="input input-bordered w-full"
+                required
+              />
+            </div>
+            <div>
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                class="input input-bordered w-full"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <button id="next-button" class="btn w-full mt-5 bg-green-500 text-white" disabled>
+          Next
+        </button>
+     </div>
+        
+      </div>
+
+      
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-neutral text-neutral-content">
+      <div>
+        <span class="footer-title">Services</span>
+        <a class="link link-hover">Branding</a>
+        <a class="link link-hover">Design</a>
+        <a class="link link-hover">Marketing</a>
+        <a class="link link-hover">Advertisement</a>
+      </div>
+      <div>
+        <span class="footer-title">Company</span>
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
+      </div>
+      <div>
+        <span class="footer-title">Legal</span>
+        <a class="link link-hover">Terms of use</a>
+        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">Cookie policy</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
