@@ -1,56 +1,62 @@
-const seats = document.querySelectorAll('.seat');
-const remainingSeatsSpan = document.getElementById('remaining-seats');
-const selectedSeatsSpan = document.getElementById('selected-seats');
-const selectedSeatsTable = document.getElementById('selected-seats-table');
-const totalPriceTable = document.getElementById('total-price-table');
-const nextButton = document.getElementById('next-button');
-const formInputs = document.querySelectorAll('#user-form input');
+const seats = [
+  "A1", "A2", "A3", "A4",
+  "B1", "B2", "B3", "B4",
+  "C1", "C2", "C3", "C4",
+  "D1", "D2", "D3", "D4",
+  "E1", "E2", "E3", "E4",
+  "F1", "F2", "F3", "F4",
+  "G1", "G2", "G3", "G4"
+];
 
+const seatContainer = document.querySelector(".grid.grid-cols-5");
+const selectedSeats = [];
+const maxSeats = seats.length;
+
+const selectedCountElement = document.getElementById("selected-count");
+const availableCountElement = document.getElementById("available-count");
+const selectedSeatsTable = document.getElementById("selected-seats-table");
+const totalPriceTable = document.getElementById("total-price-table");
 const seatPrice = 550;
-let remainingSeats = 28;
-let selectedSeats = [];
-let totalCost = 0;
 
-seats.forEach(seat => {
-  seat.addEventListener('click', () => {
-    const seatNumber = seat.textContent;
-
-    if (!selectedSeats.includes(seatNumber)) {
-      selectedSeats.push(seatNumber);
-      seat.classList.add('bg-green-500'); // Highlight selected seat
-      totalCost += seatPrice;
-      remainingSeats--;
-    } else {
-      selectedSeats = selectedSeats.filter(s => s !== seatNumber);
-      seat.classList.remove('bg-green-500');
-      totalCost -= seatPrice;
-      remainingSeats++;
-    }
-console.log(selectedSeats);
-    remainingSeatsSpan.textContent = `Available: ${remainingSeats}`;
-    selectedSeatsTable.innerHTML = selectedSeats.length ? `<tr><td>${selectedSeats.join('</td></tr><tr><td>')}</td></tr>` : '<tr><td>None</td></tr>';
-    
-    selectedSeatsTable.textContent = selectedSeats.join(', ') || 'None';
-    totalPriceTable.textContent = `$${totalCost}`;
-
-    toggleNextButton();
-  });
-});
-
-function toggleNextButton() {
-  const allFieldsFilled = Array.from(formInputs).every(input => input.value.trim() !== '');
-  nextButton.disabled = selectedSeats.length === 0 || !allFieldsFilled;
+function updateSeatInfo() {
+  selectedCountElement.innerText = selectedSeats.length;
+  availableCountElement.innerText = maxSeats - selectedSeats.length;
+  selectedSeatsTable.innerText = selectedSeats.length ? selectedSeats.join(", ") : "None";
+  totalPriceTable.innerText = `৳${selectedSeats.length * seatPrice}`;
 }
 
-formInputs.forEach(input => {
-  input.addEventListener('input', toggleNextButton);
+// Generate seats
+seats.forEach((seat) => {
+  const btn = document.createElement("button");
+  btn.innerText = seat;
+  btn.classList.add("btn", "btn-sm", "seat", "bg-white");
+  btn.addEventListener("click", () => {
+    if (!selectedSeats.includes(seat)) {
+      selectedSeats.push(seat);
+      btn.classList.remove("bg-white");
+      btn.classList.add("bg-green-400", "text-white");
+    } else {
+      const index = selectedSeats.indexOf(seat);
+      selectedSeats.splice(index, 1);
+      btn.classList.remove("bg-green-400", "text-white");
+      btn.classList.add("bg-white");
+    }
+    updateSeatInfo();
+  });
+  seatContainer.appendChild(btn);
 });
 
-nextButton.addEventListener('click', () => {
-  Swal.fire({
-    title: 'Booking Confirmed',
-    text: `Seats: ${selectedSeats.join(', ')}\nClass: Economy\nTotal Cost: $${totalCost}\nName: ${document.getElementById('name').value}\nPhone: ${document.getElementById('phone').value}\nEmail: ${document.getElementById('email').value}`,
-    icon: 'success',
-    confirmButtonText: 'OK'
+// Enable Next button when name & phone entered
+const nameInput = document.getElementById("name");
+const phoneInput = document.getElementById("phone");
+const nextBtn = document.getElementById("next-button");
+
+[nameInput, phoneInput].forEach((input) => {
+  input.addEventListener("input", () => {
+    if (nameInput.value.trim() && phoneInput.value.trim()) {
+      nextBtn.disabled = false;
+    } else {
+      nextBtn.disabled = true;
+    }
   });
 });
